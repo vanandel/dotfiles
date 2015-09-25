@@ -1,0 +1,31 @@
+(setq visible-bell t)
+(setq find-file-existing-other-name t)
+(setq default-major-mode 'indented-text-mode)
+(if window-system (progn
+		    (set-face-foreground 'modeline "red")
+		    (set-face-background 'modeline "antiquewhite")
+		    (set-face-foreground 'region "red")
+		    (set-face-background 'region "gray90")
+		    (setq-default search-highlight t)
+		    (require 'paren)
+		    (global-font-lock-mode t)
+;;		    (font-lock-make-faces)
+;;		    (set-face-foreground 'font-lock-string-face "Coral")
+;;		    (set-face-foreground 'font-lock-comment-face "Magenta")
+		    (setq font-lock-maximum-decoration 3)
+;		    (require 'hilit19)
+		    (transient-mark-mode 1)
+;		    (hilit-translate comment 'firebrick
+;				     keyword nil
+;				     decl nil
+;				     define  'bold
+;				     defun 'bold
+;				     string nil)
+;		    (hilit-add-pattern "^# *ifdef notdef" "^# *endif"
+;				       'comment 'c-mode)
+;		    (setq hilit-auto-highlight-maxout 100000)
+		    (define-key global-map [S-down-mouse-3] 'imenu)
+		    (setq imenu-sort-function 'imenu--sort-by-name)
+		    (setq default-frame-alist
+    '((font . "-*-Fixed-Medium-R-*-*-*-100-100-100-*-*-iso8859-1"))
+)))
